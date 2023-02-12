@@ -1,14 +1,14 @@
 import React from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { BsFillGridFill } from "react-icons/bs";
-function ProductHeader({ text }) {
+function ProductHeader({ text,onViewChange,isListView }) {
   return (
     <header className="product-page-header mb-3">
       <div>
-        <span className="me-2 icon-change-view">
+        <span className={`me-2 icon-change-view ${isListView?"active":""}`} onClick={()=>{onViewChange(true)}}>
           <BsFillGridFill />
         </span>
-        <span className="icon-change-view">
+        <span className={`icon-change-view ${!isListView?"active":""}`} onClick={()=>{onViewChange(false)}}>
           <RxHamburgerMenu />
         </span>
       </div>

@@ -71,7 +71,17 @@
 .icon-change-view
 {
     border: 1px solid;
-    padding: 0.2rem;
+    padding: 0.15rem;
     border-radius: 0.25rem;
     cursor: pointer;
+}
+.products-landing-wrapper.grid-view img
+{
+    height: 200px;
+    width:300px;
+}
+span.icon-change-view.active
+{
+    background-color: black;
+    color: white;
 }
