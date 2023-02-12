@@ -1,0 +1,25 @@
+.static-info
+{
+    padding-top: 100px;
+}
+.featured-card-container
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+@media only screen and (max-width:500px)
+{
+    .featured-card-container
+    {
+        flex-direction: column;
+    }
+    .mobile-none
+    {
+        display: none !important;
+    }
+    .static-info
+    {
+        padding-top: 10px;
+    }
+}

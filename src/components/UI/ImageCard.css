@@ -1,0 +1,16 @@
+img.img__card
+{
+    position: relative;
+    height: 250px;
+    width:363px;
+    transition: all 0.35s;
+}
+.image-wrapper:hover img.img__card
+{ 
+    opacity: 0.4;
+    transform: scale(1.25rem);
+}
+.image-wrapper:hover
+{
+    background-color: black;
+}
