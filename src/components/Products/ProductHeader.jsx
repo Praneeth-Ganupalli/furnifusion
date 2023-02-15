@@ -28,7 +28,7 @@ function ProductHeader({ text,onViewChange,isListView }) {
         <div className="me-1">Sort By</div>
         <div className="header-dropdown">
           <select onChange={handleSortChange} value={sortValue}>
-          <option value="rel">Relevance(Asc)</option>
+          <option value="rel">Relevance(Popular)</option>
             <option value="0-9">Price(Low-highest)</option>
             <option value="9-0">Price(Highest-Low)</option>
             <option value="A-Z">Name(A-Z)</option>
