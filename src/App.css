@@ -129,6 +129,10 @@ div.site-breadcrumb
     margin-right: 0.3rem;
     font-weight: bolder;
 }
+.cursor-pointer
+{
+  cursor: pointer;
+}
 @media only screen and (max-width:768px)
 {
   div.site-breadcrumb

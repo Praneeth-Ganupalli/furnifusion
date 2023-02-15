@@ -1,6 +1,5 @@
 img.img__card
 {
-    position: relative;
     height: 250px;
     width:363px;
     transition: all 0.35s;
@@ -13,4 +12,31 @@ img.img__card
 .image-wrapper:hover
 {
     background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.details-icon
+{
+    display: none;
+    position: absolute;
+    font-size: 28px;
+    background: hsl(171, 100%, 41%);
+    z-index: 10;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+}
+.image-wrapper
+{
+    position: relative;
+}
+.image-wrapper:hover .details-icon
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
 }

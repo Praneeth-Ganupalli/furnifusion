@@ -3,7 +3,7 @@ import ProductsList from '../components/Products/ProductsList'
 import { useSelector } from 'react-redux'
 import ProductFacets from '../components/Products/ProductFacets';
 function Products() {
-    const loadedProducts = useSelector(state => state.products.list);
+    const loadedProducts = useSelector(state => state.products.displayedList);
     return (
         <section className='product-page-content mt-5 p-5'>
             <div className='container'>
