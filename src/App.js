@@ -4,6 +4,7 @@ import AppLayout from './components/Layout/AppLayout';
 import Home from './pages/Home';
 import About from './pages/About';
 import Products from './pages/Products';
+import ProductDetailedPage from './pages/ProductDetailedPage';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getAllProductsAction } from './store';
@@ -21,6 +22,7 @@ function App() {
       <Route path="/home" element={<Home />} />
       <Route path="/about" element={<About />} />
       <Route path='/products' element={<Products />} />
+      <Route path='/products/:pid' element={<ProductDetailedPage />} />
     </Routes>
    </AppLayout>
    

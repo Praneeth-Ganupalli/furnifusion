@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { productActions } from '../../../store';
 import {BsCheck} from "react-icons/bs"
 function ColorsFacets({colorFilters,intialColor}) {
@@ -15,7 +15,7 @@ function ColorsFacets({colorFilters,intialColor}) {
         setCurrentColor(color);
     }
     useEffect(()=>{
-        if(intClr=="All")
+        if(intClr==="All")
         {
             setCurrentColor("All")
         }

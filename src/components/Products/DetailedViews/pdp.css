@@ -1,0 +1,63 @@
+.pdp-main-poster
+{
+    height:500px;
+    width:100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+.back-section 
+{
+    width: 20%;
+    
+}
+.back-section button.btn,.back-section button.btn:hover
+{
+    background-color: #093824;
+}
+.poster-item  img
+{
+    height: 75px;
+    width:100px;
+    cursor: pointer;
+    border-radius: 0.25rem;
+}
+.posters-list-wrapper
+{
+    display: flex;
+    justify-content: space-between;
+}
+.poster-item.active  img
+{
+   border:3px solid gold;
+}
+.pdp-price
+{
+    font-size: 18px;
+}
+.product-meta-wrapper div.meta-item
+{
+    display: flex;
+    /* width: 50%; */
+    gap: 10px;
+}
+div.pdp-color-wrapper .product-colr-btn
+{
+    height: 1.5rem;
+    width:1.5rem;
+}
+.atc-product__qty__wrapper
+{
+    gap: 25px;
+    align-items: center;
+}
+div.product-ratings .ratings-class
+{
+    font-size: 24px;
+}
+div.product-ratings .ratings-class span.static
+{
+    margin-left:0.25rem;
+    font-size: 12px;
+}

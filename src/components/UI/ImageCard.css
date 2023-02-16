@@ -40,3 +40,9 @@ img.img__card
     justify-content: center;
   
 }
+.details-icon svg
+{
+    left: 1px;
+    position: relative;
+    top: -2px;
+}
