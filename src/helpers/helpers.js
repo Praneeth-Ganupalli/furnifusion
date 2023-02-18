@@ -1,6 +1,6 @@
-const formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    maximumFractionDigits:0
-  });
-export const getFormattedPrice=(price)=>formatter.format(price);
+  export const getFormattedPrice = (number) => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    }).format(number / 100)
+  }

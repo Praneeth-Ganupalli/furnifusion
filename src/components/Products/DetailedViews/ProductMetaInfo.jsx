@@ -1,7 +1,10 @@
 import React from "react";
 import ProductColors from "./ProductColors";
 import ProductQtyContainer from "./ProductQtyContainer";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../../store";
 function ProductMetaInfo({ product }) {
+  const dispatch=useDispatch();
   const { company, id, stock } = product;
   const stockMessage = stock > 0 ? "In Stock" : "Out of Stock";
   const metaDefInfo = [
@@ -21,6 +24,29 @@ function ProductMetaInfo({ product }) {
       text: company,
     },
   ];
+  const [selectedColor,setSelectedColor]=React.useState(product.colors[0]);
+  const [qty,setQty]=React.useState(1);
+  const colorChangeHandler=React.useCallback((color)=>{
+   setSelectedColor(color);
+  },[])
+  const qtyChangeHandler=React.useCallback((quantity)=>{
+    setQty(quantity);
+  },[])
+  const atcHandler=()=>{
+    const newCartItem={
+      id:product.id+"_"+selectedColor,
+      quantity:qty,
+      color:selectedColor,
+      cost:product.price*qty,
+      image:product.images[0].url,
+      title:product.name,
+      price:product.price,
+      brand:product.company
+    }
+    dispatch(cartActions.setCartItem(newCartItem));
+    setSelectedColor(product.colors[0]);
+    setQty(1);
+  }
   return (
     <section className="product-meta-wrapper">
     {metaDefInfo.map(met=>{
@@ -43,14 +69,14 @@ function ProductMetaInfo({ product }) {
             <h6 className="fw-bolder">Colors:</h6>
         </div>
         <div className="col-md-3 pdp-color-wrapper">
-            <ProductColors colorFilters={product.colors} intialColor={product.colors[0]}  />
+            <ProductColors colorFilters={product.colors} intialColor={selectedColor} onColorChange={colorChangeHandler}  />
         </div>
     </div>
     <div className="row">
         <div className="col-md-6 ps-3 pt-3">
-            <ProductQtyContainer />
+            <ProductQtyContainer onQtyChange={qtyChangeHandler} intialQuantity={qty}/>
             <section className="atc-wrapper mt-3">
-                <button className="btn btn-block  btn-info text-white">
+                <button className="btn btn-block  btn-info text-white" onClick={atcHandler}>
                     Add to Cart
                 </button>
             </section>

@@ -3,9 +3,9 @@ import furniImage from "../../assets/images/peakpx3.jpg";
 function AboutContent() {
   return (
     <>
-      <div className="container p-5">
+      <div className="container p-2 p-md-5">
         <div className="row">
-          <div className="col-md-5 mb-2">
+          <div className="col-md-5 mb-4">
             <img src={furniImage} alt="furni" className="main-img about-img" />
           </div>
           <div className="col-md-6">

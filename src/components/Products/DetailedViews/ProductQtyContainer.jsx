@@ -1,14 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {FaMinus,FaPlus} from "react-icons/fa"
-function ProductQtyContainer() {
-  const [qty,setQty]=useState(1);
+function ProductQtyContainer({onQtyChange,intialQuantity}) {
+  const [qty,setQty]=useState(null);
   const incrementQty=()=>{
-    setQty(prevQty=>prevQty+1)
+    const newQty=qty+1;
+    setQty(prevQty=>prevQty+1);
+    onQtyChange(newQty);
   }
   const decrementQty=()=>{
     if(qty===1) return;
-    setQty(prevQty=>prevQty-1)
+    const newQty=qty-1;
+    setQty(newQty);
+    onQtyChange(newQty);
   }
+  useEffect(()=>{
+      setQty(intialQuantity)
+  },[intialQuantity])
   return (
     <div className="d-flex atc-product__qty__wrapper">
         <h5 className='fw-bolder cursor-pointer' onClick={decrementQty}><FaMinus /></h5>

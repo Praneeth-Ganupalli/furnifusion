@@ -1,5 +1,6 @@
 import React from 'react'
 import { getFormattedPrice } from '../../helpers/helpers'
+import { Link } from 'react-router-dom'
 function ProductDetailedView({product}) {
     const formPrice=getFormattedPrice(product.price)
   return (
@@ -14,7 +15,9 @@ function ProductDetailedView({product}) {
                 <p className="text-muted">
                     {product.description.slice(0,98)}...
                 </p>
-                <button className="btn btn-sm btn-custom__primary">Details</button>
+                <Link to={`/products/${product.id}`}>
+                    <button className="btn btn-sm btn-custom__primary">Details</button>
+                </Link>
             </div>
         </div>
    </div>

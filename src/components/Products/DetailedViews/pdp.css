@@ -46,6 +46,7 @@ div.pdp-color-wrapper .product-colr-btn
 {
     height: 1.5rem;
     width:1.5rem;
+    font-size: 24px;
 }
 .atc-product__qty__wrapper
 {
@@ -60,4 +61,25 @@ div.product-ratings .ratings-class span.static
 {
     margin-left:0.25rem;
     font-size: 12px;
+}
+@media screen and (max-width:768px) {
+    .pdp-main___section
+    {
+        padding: 0.5rem;
+    }
+    .pdp-main___section .posters-list-wrapper
+    {
+        flex-wrap: wrap;
+        justify-content: normal;
+        gap: 10px;
+        margin-bottom: 1.5rem;
+    }
+    .pdp-main___section .pdp-main-poster
+    {
+        height: auto;
+    }
+    .pdp-main___section section.back-section 
+    {
+        width: 100%;
+    }
 }

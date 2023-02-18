@@ -1,0 +1,11 @@
+div.site-loader__container
+{
+    height: 100vh;
+    margin-top:150px;
+}
+div.spinner-border.site-spinner
+{
+    height:10rem;
+    width:10rem;
+    color:hsl(171, 100%, 41%);
+}

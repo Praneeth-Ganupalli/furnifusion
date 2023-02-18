@@ -2,7 +2,12 @@ import React from 'react'
 import { NAV_LINKS } from '../../helpers/constants'
 import {BsFillCartFill} from "react-icons/bs"
 import { NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 function Header() { 
+  const cartData=useSelector(state=>state.cart.list);
+  const cartCount=cartData.reduce((cur,acc)=>{
+    return cur+acc.quantity;
+  },0)
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-custom__primary text-white p-3">
   <div className="container">
@@ -22,7 +27,7 @@ function Header() {
      <NavLink className="nav-link text-white me-3 cart-icon-wrapper" to='/cart'>Cart
       <span className='cart-container mx-2'>
             <BsFillCartFill className='cart-icon' />
-            <span className="cart-value">5</span>
+            <span className="cart-value">{cartCount}</span>
         </span>
       </NavLink>
        <NavLink className='nav-link text-white ' to='/login'>Login</NavLink>

@@ -1,14 +1,14 @@
 import React from 'react'
-import staticProd from "../../../assets/staticPro.json"
+// import staticProd from "../../../assets/staticPro.json"
 import { Link } from 'react-router-dom';
 import ProductImageContainer from './ProductImageContainer';
 import ProductDescription from './ProductDescription';
 import "./pdp.css"
-function PdpMain() {
-  const product=staticProd;
+function PdpMain({product}) {
+  // const product=staticProd;
   return (
-    <section className="p-5">
-      <section className="back-section mb-3 ps-3 mx-5">
+    <section className="p-md-5 pdp-main___section">
+      <section className="back-section mb-3 ps-md-3 mx-md-5">
         <Link to="/products">
           <button className="btn btn-block w-100 text-white">
             Back to products

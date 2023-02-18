@@ -1,14 +1,20 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
-function BreadCrumb({activePath}) {
+import { useSelector } from 'react-redux'
+function BreadCrumb() {
+  const breadcrumbData=useSelector(state=>state.breadcrumb?.data);
   return (
+    <>
     <div className="p-5 site-breadcrumb">
-        <span><Link to="/home" className='text-white text-decoration-none'>Home</Link></span>
-        <span>/</span>
-        <span className='active-page text-capitalize'>{activePath}</span>
-    </div>
+      {breadcrumbData && breadcrumbData.length>0 && breadcrumbData.map(bdc=>{
+        return <Fragment key={bdc.name}>
+          {bdc.active && <span className='active-page text-capitalize' key={bdc.name}>{bdc.name}</span> }
+          {!bdc.active && <span className='redirect-class'><Link to={bdc.path} className='text-white  text-decoration-none' key={bdc.name}>{bdc.name}</Link></span>}
+        </Fragment>
+      })
+   } </div>
+    </>
+    
   ) 
 }
-
-
 export default BreadCrumb
