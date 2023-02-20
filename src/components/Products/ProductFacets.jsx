@@ -34,7 +34,7 @@ function ProductFacets() {
         <div className="form-group">
           <input
             type="text"
-            placeholder="search.."
+            placeholder="Search.."
             className="form-control bg-light"
             onChange={handleSearch}
           />

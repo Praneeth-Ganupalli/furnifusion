@@ -140,11 +140,23 @@ div.site-breadcrumb span.redirect-class::after
 {
   min-height: 100vh;
 }
+.empty-cart
+{
+  height: 90vh;
+}
 @media only screen and (max-width:768px)
 {
   div.site-breadcrumb
   {
     padding-left: 1.5rem !important;
     font-size: 20px;
+  }
+  .empty-cart button.fill-it-btn
+  {
+    width:75% !important
+  }
+  .empty-cart .empty-cart-image
+  {
+    display: none;
   }
 }

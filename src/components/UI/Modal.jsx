@@ -24,7 +24,6 @@ function ModalWrapper({onClose,modalContent}) {
                                 {modalContent && <div>
                                     <h5 className='text-capitalize pb-1'>{modalContent.title}</h5>
                                    <img src={modalContent.image} alt="furniture" height={150} width={225} />
-                                  
                                 </div>}
                             </div>
                             <div className="col-md-6 ps-md-4 pt-3">
