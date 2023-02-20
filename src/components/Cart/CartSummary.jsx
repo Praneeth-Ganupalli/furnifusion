@@ -51,9 +51,9 @@ function CartSummary({cartData}) {
                 <span><strong>{orderTotal}</strong></span>
               </li>
             </ul>
-            <div className="form-outline form-group d-flex mb-3">
+            <div className="form-outline input-group d-flex mb-3">
               <input type="text" id="form1" className="form-control" placeholder='Coupon code' />
-              <button type="button" className="btn btn-warning ms-1 text-white">Apply</button>
+              <button type="button" className="btn btn-warning text-white">Apply</button>
             </div>
            
             <button type="button" className="btn btn-info text-white btn-lg btn-block w-100">

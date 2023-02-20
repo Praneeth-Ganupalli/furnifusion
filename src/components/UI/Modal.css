@@ -1,0 +1,30 @@
+div.atc-modal
+{
+    background-color: rgba(0, 0, 0, 0.7);;
+}
+div.atc-modal.modal-content
+{
+    opacity: 1;
+}
+.modal-check-icon
+{
+    position: relative;
+    top: -2px;
+    font-size: 1.5rem;
+    background-color: green;
+    color: white;
+    border-radius: 50%;
+    margin-left: 0.25rem;
+}
+.modal-cart-item__color
+{
+    background-color: rgb(0, 0, 0);
+    height: 0.75rem;
+    width: 0.75rem;
+    display: inline-block;
+    border-radius: 0.25rm;
+    border-radius: 0.25rem;
+    position: relative;
+    top: 1px;
+    margin-left: 0.3rem;
+}

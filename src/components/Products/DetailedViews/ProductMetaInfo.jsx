@@ -3,6 +3,7 @@ import ProductColors from "./ProductColors";
 import ProductQtyContainer from "./ProductQtyContainer";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../../store";
+import Modal from "../../UI/Modal";
 function ProductMetaInfo({ product }) {
   const dispatch=useDispatch();
   const { company, id, stock } = product;
@@ -25,6 +26,8 @@ function ProductMetaInfo({ product }) {
     },
   ];
   const [selectedColor,setSelectedColor]=React.useState(product.colors[0]);
+  const [showAtcModal,setAtcModal]=React.useState(false);
+  const [modalContent,setModalContent]=React.useState(null);
   const [qty,setQty]=React.useState(1);
   const colorChangeHandler=React.useCallback((color)=>{
    setSelectedColor(color);
@@ -44,8 +47,13 @@ function ProductMetaInfo({ product }) {
       brand:product.company
     }
     dispatch(cartActions.setCartItem(newCartItem));
+    setModalContent(newCartItem);
+    setAtcModal(true);
     setSelectedColor(product.colors[0]);
     setQty(1);
+  }
+  const closeModalHandler=()=>{
+    setAtcModal(false);
   }
   return (
     <section className="product-meta-wrapper">
@@ -82,6 +90,7 @@ function ProductMetaInfo({ product }) {
             </section>
         </div>
     </div>
+    {showAtcModal && <Modal onClose={closeModalHandler} modalContent={modalContent} />}
     </section>
   );
 }
