@@ -12,10 +12,10 @@ function ModalWrapper({onClose,modalContent}) {
   return (
     <div className="modal d-block atc-modal" onClick={onClose}>
         <div className="modal-dialog modal-dialog-centered">
-            <div className="modal-content bg-dark text-white" onClick={(e)=>e.stopPropagation()}>
+            <div className="modal-content bg-light text-black" onClick={(e)=>e.stopPropagation()}>
                 <div className="modal-header">
                         <h4 className='pt-2' >Added to Cart <TiTick className='modal-check-icon' /></h4>
-                        <button className="btn btn-outline-light" onClick={onClose}>&times;</button>
+                        <button className="btn btn-dark" onClick={onClose}>&times;</button>
                 </div>
                 <div className="modal-body ">
                     <div className="container">
@@ -28,7 +28,7 @@ function ModalWrapper({onClose,modalContent}) {
                             </div>
                             <div className="col-md-6 ps-md-4 pt-3">
                                 {modalContent && <div className='mt-2 mb-2'>
-                                <div className='mt-2 text-muted'>Quantity: <span className='text-white'> {modalContent.quantity}</span></div>
+                                <div className='mt-2 text-muted'>Quantity: <span className='text-black'> {modalContent.quantity}</span></div>
                                     <div className="text-muted">Color: <span style={{backgroundColor:modalContent.color}} className="modal-cart-item__color"></span></div>
                                  <div className="text-muted">Cost:
                                  <span className='text-custom__primary ms-3'>{getFormattedPrice(modalContent.cost)}</span>

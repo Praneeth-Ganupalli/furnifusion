@@ -11,6 +11,7 @@ function AppLayout({ children }) {
     const restrictedPaths=["/home","/login"]
     const showBreadCrumb=!restrictedPaths.includes(currentRoute.pathname);
     const curPathName=currentRoute.pathname.replace("/","");
+    const isLoginPage=curPathName==="login";
     const {pid}=useParams();
     useEffect(()=>{
       if(showBreadCrumb && !pid)
@@ -24,15 +25,15 @@ function AppLayout({ children }) {
     },[showBreadCrumb,currentRoute,dispatch,curPathName,pid])
   return (
     <>
-      <header>
-        <Header />
-        {showBreadCrumb && <BreadCrumb activePath={curPathName} />}
-      </header>
+    {!isLoginPage && <header>
+      <Header />
+      {showBreadCrumb && <BreadCrumb activePath={curPathName} />}
+    </header>}
       <main>
         {children}</main>
-      <footer>
+      {!isLoginPage && <footer>
         <Footer />
-      </footer>
+      </footer>}
     </>
   );
 }

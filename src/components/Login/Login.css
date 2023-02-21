@@ -1,0 +1,5 @@
+div.input-error input
+{
+    outline: 2px solid red;
+    color:red;
+}

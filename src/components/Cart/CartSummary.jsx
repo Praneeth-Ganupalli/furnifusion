@@ -1,6 +1,10 @@
 import React from 'react'
 import { getFormattedPrice } from '../../helpers/helpers';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 function CartSummary({cartData}) {
+  const navigate=useNavigate();
+  const {isLoggedIn}=useSelector((state)=>state.login);
   const totalCartProducts=cartData.length;
   const cartCount=cartData.reduce((cur,acc)=>{
     return cur+acc.quantity;
@@ -11,6 +15,9 @@ function CartSummary({cartData}) {
   const ordTotal=cartSubTotal+3000.55;
   const orderTotal=getFormattedPrice(ordTotal)
   const formattedSubTotal=getFormattedPrice(cartSubTotal);
+  const signInHandler=()=>{
+    navigate("/login?fromCart=true");
+  }
   return (
     
         <div className="card mb-4">
@@ -55,10 +62,12 @@ function CartSummary({cartData}) {
               <input type="text" id="form1" className="form-control" placeholder='Coupon code' />
               <button type="button" className="btn btn-warning text-white">Apply</button>
             </div>
-           
-            <button type="button" className="btn btn-info text-white btn-lg btn-block w-100">
+            {!isLoggedIn && <button type="button" onClick={signInHandler} className="btn btn-info text-white btn-lg btn-block w-100">
+              Sign in to Checkout
+            </button>}
+            {isLoggedIn && <button type="button" className="btn btn-info text-white btn-lg btn-block w-100">
               Place Order
-            </button>
+            </button>}
           </div>
         </div>
   )
