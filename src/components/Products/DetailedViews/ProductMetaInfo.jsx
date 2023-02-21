@@ -7,7 +7,7 @@ import Modal from "../../UI/Modal";
 function ProductMetaInfo({ product }) {
   const dispatch=useDispatch();
   const { company, id, stock } = product;
-  const stockMessage = stock > 0 ? "In Stock" : "Out of Stock";
+  const stockMessage = stock > 0 ? "In Stock" : "Selling Fast";
   const metaDefInfo = [
     {
       label: "Availability:",
