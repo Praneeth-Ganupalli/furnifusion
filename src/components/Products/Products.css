@@ -71,6 +71,10 @@ div.clr-active-btn
     {
         margin:0 !important;
     }
+    .products-landing-wrapper
+    {
+        padding: 1.2rem;
+    }
 }
 .icon-change-view
 {
