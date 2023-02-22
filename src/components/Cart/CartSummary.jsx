@@ -2,7 +2,7 @@ import React from 'react'
 import { getFormattedPrice } from '../../helpers/helpers';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-function CartSummary({cartData}) {
+function CartSummary({cartData,onCheckoutShow}) {
   const navigate=useNavigate();
   const {isLoggedIn}=useSelector((state)=>state.login);
   const totalCartProducts=cartData.length;
@@ -65,8 +65,8 @@ function CartSummary({cartData}) {
             {!isLoggedIn && <button type="button" onClick={signInHandler} className="btn btn-info text-white btn-lg btn-block w-100">
               Sign in to Checkout
             </button>}
-            {isLoggedIn && <button type="button" className="btn btn-info text-white btn-lg btn-block w-100">
-              Place Order
+            {isLoggedIn && <button type="button" onClick={onCheckoutShow} className="btn btn-secondary text-white btn-lg btn-block w-100">
+             Buy Now
             </button>}
           </div>
         </div>

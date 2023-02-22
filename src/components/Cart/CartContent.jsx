@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import CartItem from "./CartItem";
 import "./Cart.css"
 import CartSummary from "./CartSummary";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../store";
+import CheckoutForm from "../Checkout/CheckoutForm";
 function CartContent({cartItems}) {
     const dispatch=useDispatch();
     const clearCartHandler=()=>{
         dispatch(cartActions.clearCart())
     }
+  const[showCheckout,setCheckout]=useState(false);
   return (
     <section className="h-100">
       <div className="container h-100 py-5">
@@ -21,13 +23,13 @@ function CartContent({cartItems}) {
             </div>
           </div>
           <div className="row">
-          <div className="col-md-8">
+          {<div className="col-md-8">
           {
             cartItems.map((cartItem)=>{
-                return <CartItem item={cartItem} key={cartItem.id} />
+                return <CartItem isCheckoutMode={showCheckout} item={cartItem} key={cartItem.id} />
             })
           }
-          <section className="cart-button-section mt-2 mb-3 d-flex">
+          {!showCheckout && <section className="cart-button-section mt-2 mb-3 d-flex">
             <Link to="/products">
             <button className="btn btn-lg btn-block btn-custom__primary">
                 Continue Shopping
@@ -36,10 +38,11 @@ function CartContent({cartItems}) {
             <button className="btn btn-lg btn-block ms-auto w-25 btn-clear-cart" onClick={clearCartHandler}>
                 Clear Cart
             </button>
-          </section>
-          </div>
+          </section>}
+          </div>}
           <div className="col-md-4">
-            <CartSummary cartData={cartItems} />
+            {!showCheckout && <CartSummary cartData={cartItems} onCheckoutShow={()=>{setCheckout(true)}} />}
+           { showCheckout && <CheckoutForm onSummaryShow={()=>{setCheckout(false)}} />}
           </div>
           </div>
          

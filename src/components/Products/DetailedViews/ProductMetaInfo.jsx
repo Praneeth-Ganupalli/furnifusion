@@ -3,7 +3,7 @@ import ProductColors from "./ProductColors";
 import ProductQtyContainer from "./ProductQtyContainer";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../../store";
-import Modal from "../../UI/Modal";
+import AtcModal from "../../Checkout/Cart/AtcModal";
 function ProductMetaInfo({ product }) {
   const dispatch=useDispatch();
   const { company, id, stock } = product;
@@ -90,7 +90,7 @@ function ProductMetaInfo({ product }) {
             </section>
         </div>
     </div>
-    {showAtcModal && <Modal onClose={closeModalHandler} modalContent={modalContent} />}
+    {showAtcModal && <AtcModal onClose={closeModalHandler} modalContent={modalContent} />}
     </section>
   );
 }

@@ -33,3 +33,4 @@ export const HOME_PAGE_CARDS=[
 export const products_url = 'https://course-api.com/react-store-products'
 
 export const single_product_url = `https://course-api.com/react-store-single-product?id=`
+export const TEST_CARD="5111111111111111"

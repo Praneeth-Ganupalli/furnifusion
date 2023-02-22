@@ -4,7 +4,7 @@ import { getFormattedPrice } from '../../helpers/helpers'
 import {BsTrash} from "react-icons/bs"
 import { useDispatch } from 'react-redux'
 import { cartActions } from '../../store'
-function CartItem({item}) {
+function CartItem({item,isCheckoutMode}) {
  const {brand,title,color,image,cost,quantity,price,id}=item
  const displayCost=getFormattedPrice(cost);
  const dispatch=useDispatch();
@@ -37,13 +37,13 @@ function CartItem({item}) {
             <div className="text-capitalize cart-item__price">Price: {getFormattedPrice(price)}</div>
           </div>
         </div>
-        <div className="col-md-3 col-lg-3 col-xl-2 d-flex   fw-bold">
+        <div className={`col-md-3 col-lg-3 col-xl-2 d-flex fw-bold ${isCheckoutMode ? "cart-no-edit":""}`}>
           <ProductQtyContainer intialQuantity={quantity} onQtyChange={qtyChangeHandler} />
         </div>
         <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
           <h5 className="mb-0 text-custom__primary fw-bolder">{displayCost}</h5>
         </div>
-        <div className="col-md-1 col-lg-1 col-xl-1 text-end" >
+        <div className={`col-md-1 col-lg-1 col-xl-1 text-end ${isCheckoutMode ? "cart-no-edit":""}`} >
             <span onClick={removeCartItemHandler}>
                 <BsTrash   className="text-danger cursor-pointer" />
             </span>

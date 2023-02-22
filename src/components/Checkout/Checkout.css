@@ -1,0 +1,27 @@
+.card-hint
+{
+    font-size: 12px;
+}
+div.cc-icon
+{
+    position: absolute;
+    top: 31px;
+    right: 6px;
+    height: 2.5rem;
+    font-size: 24px;
+    bottom: 0;
+}
+.relative
+{
+    position: relative;
+}
+input.error-input-container
+{
+    outline: 2px solid red;
+}
+.error-text
+{
+    white-space: nowrap;
+    margin-top:0.5rem;
+    font-size: 12px;
+}
