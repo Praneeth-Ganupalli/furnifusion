@@ -3,14 +3,14 @@ import Modal from '../UI/Modal'
 function CheckOutConfirmationModal({onClose}) {
     const [closeCount,setCloseCount]=useState(5);
     useEffect(()=>{
-        setTimeout(()=>{
+       const redirectCounter= setInterval(()=>{
             setCloseCount(prevCount=>prevCount-1);
-        },[1000])
+        },[1000]);
+        const removeTimeout=()=>{
+            clearInterval(redirectCounter)
+        }
+        return removeTimeout;
     },[setCloseCount,closeCount])
-    if(closeCount===0)
-    {
-        onClose();
-    }
   return (
     <Modal title="Order Placed" onClose={onClose}>
         <p className="lead text-justify">

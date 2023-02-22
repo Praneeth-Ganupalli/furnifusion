@@ -171,14 +171,15 @@ function CheckoutForm({onSummaryShow}) {
     setTimeout(()=>{
       setcnfModal(true);
       setShowLoader(false);
-    },3000)
+      setTimeout(completePlaceOrder,5000);
+    },2000)
+   
   }
   function completePlaceOrder()
   {
     setcnfModal(false);
     dispatch(cartActions.clearCart());
     navigate("/home");
-
   }
   return (
     <section className="card">
