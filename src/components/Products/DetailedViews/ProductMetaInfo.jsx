@@ -3,7 +3,7 @@ import ProductColors from "./ProductColors";
 import ProductQtyContainer from "./ProductQtyContainer";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../../store";
-import AtcModal from "../../Checkout/Cart/AtcModal";
+import AtcModal from "../../Cart/AtcModal"
 function ProductMetaInfo({ product }) {
   const dispatch=useDispatch();
   const { company, id, stock } = product;
