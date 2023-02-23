@@ -14,7 +14,7 @@ function CompanyFacets({companyFilters,intialValue}) {
     setDropDownVal(e.target.value)
   }
   useEffect(()=>{
-    if(intLocValue=="All")
+    if(intLocValue==="All")
     {
         setDropDownVal("All")
     }
