@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ProductsList from '../components/Products/ProductsList'
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
 import ProductFacets from '../components/Products/ProductFacets';
+import { productActions } from '../store';
 function Products() {
     const loadedProducts = useSelector(state => state.products.displayedList);
+    const dispatch=useDispatch();
+    useEffect(()=>{
+        dispatch(productActions.resetFilters());
+    },[dispatch])
     return (
         <section className='product-page-content mt-5 p-5'>
             <div className='container'>
