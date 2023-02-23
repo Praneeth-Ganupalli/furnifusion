@@ -1,7 +1,7 @@
 import React from "react";
-import Modal from "../../UI/Modal";
+import Modal from "../UI/Modal";
 import { useNavigate } from "react-router-dom";
-import { getFormattedPrice } from "../../../helpers/helpers";
+import { getFormattedPrice } from "../../helpers/helpers";
 function AtcModal({ modalContent, onClose }) {
   const navigate = useNavigate();
   const cartNavigate = () => {
