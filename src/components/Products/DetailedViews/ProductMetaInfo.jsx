@@ -46,9 +46,11 @@ function ProductMetaInfo({ product }) {
       price:product.price,
       brand:product.company
     }
+    const cartContent={...newCartItem,description:product.description,stars:Math.round(product.stars),customerRatings:product.reviews};
     dispatch(cartActions.setCartItem(newCartItem));
-    setModalContent(newCartItem);
+    setModalContent(cartContent);
     setAtcModal(true);
+    window.scrollTo(0,0);
     setSelectedColor(product.colors[0]);
     setQty(1);
   }

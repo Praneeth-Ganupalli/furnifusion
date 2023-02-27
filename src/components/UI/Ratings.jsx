@@ -9,7 +9,7 @@ function Ratings({customerRatings,productRating}) {
     <div className="ratings-class">
         {filledStarsArr.length>0 && filledStarsArr.map((_,index)=><span key={index}><AiFillStar className='text-warning' /></span>)}
         {unfilledStarsArr.length>0 && unfilledStarsArr.map((_,index)=><span key={index}><AiOutlineStar className='text-warning' /></span>)}   
-    <span className='static'>({customerRatings} Customer Ratings)</span>
+    <span className='static'>({customerRatings})</span>
     </div>
   )
 }
