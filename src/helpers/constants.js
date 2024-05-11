@@ -30,7 +30,7 @@ export const HOME_PAGE_CARDS=[
         content:"Furnifusion was founded to offer affordable, stylish furniture for all. Our journey started with a small selection and grew into a passion for creating functional homes.we strive for excellent customer service and a seamless shopping experience."
     }
 ]
-export const products_url = 'https://course-api.com/react-store-products'
+export const products_url = 'https://furni-fusion-praneeth836-default-rtdb.firebaseio.com/products.json'
 
-export const single_product_url = `https://course-api.com/react-store-single-product?id=`
+export const single_product_url = `https://furni-fusion-praneeth836-default-rtdb.firebaseio.com/products`
 export const TEST_CARD="5111111111111111"

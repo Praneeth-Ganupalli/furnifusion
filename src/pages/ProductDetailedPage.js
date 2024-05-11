@@ -16,7 +16,7 @@ function ProductDetailedPage() {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`${single_product_url}${pid}`);
+        const response = await axios.get(`${single_product_url}/${pid}.json`);
         const { data } = response;
         setProduct(data);
         setLoading(false);
