@@ -1,15 +1,20 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import {useSelector } from 'react-redux'
 import CartContent from '../components/Cart/CartContent';
 import EmptyCart from '../components/Cart/EmptyCart';
+import useCart from '../components/Cart/hooks/useCart';
+import Loader from '../components/UI/Loader';
 function Cart() {
   const cartData = useSelector(({ cart }) => cart.list);
+  const cartLength = cartData.length;
+  const { isLoading } = useCart();
   return (
     <>
-      {cartData.length === 0 && <section className='empty-cart p-5'>
+      {isLoading && <Loader />}
+      {cartLength === 0 && <section className='empty-cart p-5'>
         <EmptyCart />
       </section>}
-      {cartData && cartData.length > 0 && <CartContent cartItems={cartData} />}
+      {cartData && cartLength > 0 && <CartContent cartItems={cartData} />}
     </>
   )
 }

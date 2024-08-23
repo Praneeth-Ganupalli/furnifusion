@@ -4,13 +4,17 @@ function CheckOutConfirmationModal({onClose}) {
     const [closeCount,setCloseCount]=useState(5);
     useEffect(()=>{
        const redirectCounter= setInterval(()=>{
+            if(closeCount<=1)
+            {
+                onClose();
+            }
             setCloseCount(prevCount=>prevCount-1);
         },[1000]);
         const removeTimeout=()=>{
             clearInterval(redirectCounter)
         }
         return removeTimeout;
-    },[setCloseCount,closeCount])
+    },[setCloseCount,closeCount,onClose])
   return (
     <Modal title="Order Placed" onClose={onClose}>
         <p className="lead text-justify">

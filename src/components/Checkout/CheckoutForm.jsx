@@ -123,7 +123,6 @@ function CheckoutForm({onSummaryShow}) {
   }
   const expBlurHandler=()=>{
     const validExp=validateExpDate(exp);
-    console.log(validExp);
     if(validExp!==null)
     {
         setExpError(!validExp);

@@ -1,12 +1,14 @@
-import React from 'react'
-import "./loader.css"
+import React from "react";
+import "./loader.css";
+import { createPortal } from "react-dom";
 function Loader() {
-  return (
-    <div className="d-flex justify-content-center site-loader__container">
-    <div className="spinner-border site-spinner" role="status">
-    </div>
-  </div>
-  )
+  return createPortal(
+    <>
+      <div className="d-flex justify-content-center site-loader__container">
+        <div className="spinner-border site-spinner" role="status"></div>
+      </div>
+    </>,document.getElementById('fullscreen')
+  );
 }
 
-export default Loader
+export default Loader;

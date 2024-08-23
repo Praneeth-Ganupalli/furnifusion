@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { AiOutlineUserAdd, AiOutlineUserDelete } from "react-icons/ai";
 import { loginActions } from "../../store";
 import { useNavigate } from "react-router-dom";
+import { removeSavedInfo } from "../../helpers/auth";
 function Header() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -13,9 +14,11 @@ function Header() {
   const cartCount = cartData.reduce((cur, acc) => {
     return cur + acc.quantity;
   }, 0);
-  const { isLoggedIn } = useSelector((state) => state.login);
+  const { isLoggedIn,user } = useSelector((state) => state.auth);
   const logoutUserHandler = () => {
     dispatch(loginActions.setLoginStatus(false));
+    dispatch(loginActions.setUserInfo(null));
+    removeSavedInfo();
     navigate("/home");
   };
   const [showSideBar,setShowSideBar]=useState(false);
@@ -59,6 +62,12 @@ function Header() {
             })}
           </ul>
           <div className="d-flex">
+         { isLoggedIn && <NavLink
+              className="nav-link text-white me-3 cart-icon-wrapper"
+              to="/orders"
+            >
+              Orders
+            </NavLink>}
             <NavLink
               className="nav-link text-white me-3 cart-icon-wrapper"
               to="/cart"
@@ -77,9 +86,9 @@ function Header() {
             {isLoggedIn && (
               <span
                 className="nav-link text-white cursor-pointer"
-                onClick={logoutUserHandler}
               >
-                Logout <AiOutlineUserDelete className="" />{" "}
+                <span className="me-2">Hi,{user?.name}</span>
+                <span onClick={logoutUserHandler}>Logout <AiOutlineUserDelete className="" />{" "}</span>
               </span>
             )}
           </div>

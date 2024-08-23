@@ -9,7 +9,7 @@ const store=configureStore({
         products:productSlice.reducer,
         breadcrumb:breadCrumbSlice.reducer,
         cart:cartSlice.reducer,
-        login:loginSlice.reducer
+        auth:loginSlice.reducer
     }
 })
 export {getAllProductsAction,productActions,breadCrumbActions,cartActions,loginActions}

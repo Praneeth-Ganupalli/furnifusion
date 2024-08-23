@@ -5,7 +5,6 @@ import ProductImageContainer from './ProductImageContainer';
 import ProductDescription from './ProductDescription';
 import "./pdp.css"
 function PdpMain({product}) {
-  // const product=staticProd;
   return (
     <section className="p-md-5 pdp-main___section">
       <section className="back-section mb-3 ps-md-3 mx-md-5">

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import PdpMain from '../components/Products/DetailedViews/PdpMain';
-import { single_product_url } from '../helpers/constants';
+import {products_url } from '../helpers/constants';
 import axios from 'axios';
 import Loader from '../components/UI/Loader';
 import { useDispatch } from 'react-redux';
@@ -16,9 +16,9 @@ function ProductDetailedPage() {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`${single_product_url}/${pid}.json`);
+        const response = await axios.get(`${products_url}/${pid}`);
         const { data } = response;
-        setProduct(data);
+        setProduct(data.data);
         setLoading(false);
         dispatch(breadCrumbActions.updateBreadcrumbs([
           {
@@ -26,7 +26,7 @@ function ProductDetailedPage() {
             path: "/products"
           },
           {
-            name: data.name,
+            name: data?.data.name,
             active: true
           }
         ]))

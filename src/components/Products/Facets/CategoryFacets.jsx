@@ -23,11 +23,11 @@ function CategoryFacets({ categoryFilters,intialValue }) {
     <section className="category-facet mb-2 mt-4">
       <h4>Category</h4>
       {categoryFilters.length > 0 &&
-        categoryFilters.map((category) => {
+        categoryFilters.map((category,idx) => {
           return (
             <div
               className={`mb-2 text-capitalize cursor-pointer ${currentFilter===category?"facet-active":""} `}
-              key={category}
+              key={idx}
               onClick={() => {
                 handleCategoryFilter(category);
               }}

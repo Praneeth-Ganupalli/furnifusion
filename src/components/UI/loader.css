@@ -2,6 +2,13 @@ div.site-loader__container
 {
     height: 100vh;
     margin-top:150px;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    background-color: rgba(0,0,0,0.35);
+    z-index: 99999;
+    align-items: center;
 }
 div.spinner-border.site-spinner
 {

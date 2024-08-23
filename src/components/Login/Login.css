@@ -3,3 +3,10 @@ div.input-error input
     outline: 2px solid red;
     color:red;
 }
+button.signup_helper
+{
+    color:hsl(171, 100%, 41%);
+    font-weight: bold;
+    position: relative;
+    top:-2px;
+}

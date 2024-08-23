@@ -3,7 +3,7 @@
         "id": "recNZ0koOqEmilmoz",
         "name": "entertainment center",
         "price": 59999,
-        "image": "https://images2.imgbox.com/cb/69/cQ29pV1x_o.jpeg",
+        "image": "https://res.cloudinary.com/dtkumvhbp/image/upload/v1722333008/main-imag-recNZ0koOqEmilmoz.jpg",
         "featured": true,
         "colors": [
           "#000",
@@ -18,7 +18,7 @@
         "id": "recrfxv3EwpvJwvjq",
         "name": "high-back bench",
         "price": 39999,
-        "image": "https://images2.imgbox.com/b4/3d/2jm4sPHs_o.jpeg",
+        "image": "https://res.cloudinary.com/dtkumvhbp/image/upload/v1722333008/main-imag-recrfxv3EwpvJwvjq.jpg",
         "featured": true,
         "colors": [
           "#000",
@@ -33,7 +33,7 @@
         "id": "recoAJYUCuEKxcPSr",
         "name": "modern bookshelf",
         "price": 31999,
-        "image": "https://images2.imgbox.com/c7/9c/2GpPoQKF_o.jpeg",
+        "image": "https://res.cloudinary.com/dtkumvhbp/image/upload/v1722333008/main-imag-recoAJYUCuEKxcPSr.jpg",
         "featured": true,
         "colors": [
           "#ffb900",

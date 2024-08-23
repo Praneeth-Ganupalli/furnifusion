@@ -8,7 +8,7 @@ function ProductImageContainer({images}) {
         <img src={mainPoster} alt="furniture"  className="pdp-main-poster"/>
     <section className="posters-list-wrapper mt-4">
         {images && images.length>0 && images.map((img,index)=>{
-            return <div className={`poster-item ${img.url===mainPoster ? "active":""}`} key={img.id} onClick={()=>{
+            return <div className={`poster-item ${img.url===mainPoster ? "active":""}`} key={index} onClick={()=>{
                 setMainImageIndex(index)
             }}>
                 <img src={img.url} alt="furniture" />

@@ -12,11 +12,11 @@ const cartSlice=createSlice({
         setCartItem(state,action)
         {
             const item=action.payload;
-            const existingItemIdx=state.list.findIndex(cItem=>cItem.id===item.id);
+            item.cost = item.quantity * item.price;
+            const existingItemIdx=state.list.findIndex(cItem=>cItem._id===item._id);
             if(existingItemIdx>-1)
             {
                 state.list[existingItemIdx].quantity+=item.quantity;
-                state.list[existingItemIdx].cost+=item.cost;
             }
             else{
                 state.list.push(item);
@@ -25,7 +25,7 @@ const cartSlice=createSlice({
         removeCartItem(state,action)
         {
             const deltedId=action.payload;
-            state.list=state.list.filter(item=>item.id!==deltedId);
+            state.list=state.list.filter(item=>item._id!==deltedId);
         },
         clearCart(state)
         {
@@ -34,7 +34,7 @@ const cartSlice=createSlice({
         updateQuantity(state,action)
         {
             const product=action.payload
-            const prodIndex=state.list.findIndex(cItem=>cItem.id===product.id);
+            const prodIndex=state.list.findIndex(cItem=>cItem._id===product._id);
             if(prodIndex>-1)
             {
                 state.list[prodIndex].quantity=product.quantity;

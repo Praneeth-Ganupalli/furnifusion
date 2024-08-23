@@ -6,8 +6,8 @@ function BreadCrumb() {
   return (
     <>
     <div className="p-5 site-breadcrumb">
-      {breadcrumbData && breadcrumbData.length>0 && breadcrumbData.map(bdc=>{
-        return <Fragment key={bdc.name}>
+      {breadcrumbData && breadcrumbData.length>0 && breadcrumbData.map((bdc,idx)=>{
+        return <Fragment key={idx}>
           {bdc.active && <span className='active-page text-capitalize' key={bdc.name}>{bdc.name}</span> }
           {!bdc.active && <span className='redirect-class'><Link to={bdc.path} className='text-white  text-decoration-none' key={bdc.name}>{bdc.name}</Link></span>}
         </Fragment>

@@ -2,9 +2,13 @@ import React from 'react'
 import { getFormattedPrice } from '../../helpers/helpers';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-function CartSummary({cartData,onCheckoutShow}) {
+import ButtonLoader from '../UI/ButtonLoader';
+import useCheckout from '../../helpers/hooks/useCheckout';
+import { TEST_CARD } from '../../helpers/constants';
+function CartSummary({cartData,onCheckoutClick}) {
   const navigate=useNavigate();
-  const {isLoggedIn}=useSelector((state)=>state.login);
+  const {isLoading,error,fetchCheckoutSessionFromServer} = useCheckout();
+  const {isLoggedIn}=useSelector((state)=>state.auth);
   const totalCartProducts=cartData.length;
   const cartCount=cartData.reduce((cur,acc)=>{
     return cur+acc.quantity;
@@ -17,6 +21,16 @@ function CartSummary({cartData,onCheckoutShow}) {
   const formattedSubTotal=getFormattedPrice(cartSubTotal);
   const signInHandler=()=>{
     navigate("/login?fromCart=true");
+  }
+  const fetchSessionIdFromServer = async()=>{
+    try{
+      const sessionId = await fetchCheckoutSessionFromServer();
+       onCheckoutClick(sessionId)
+    }
+    catch(e)
+    {
+      console.log('Error Fetching Session Id');
+    }
   }
   return (
     
@@ -65,9 +79,13 @@ function CartSummary({cartData,onCheckoutShow}) {
             {!isLoggedIn && <button type="button" onClick={signInHandler} className="btn btn-info text-white btn-lg btn-block w-100">
               Sign in to Checkout
             </button>}
-            {isLoggedIn && <button type="button" onClick={onCheckoutShow} className="btn btn-secondary text-white btn-lg btn-block w-100">
-             Buy Now
-            </button>}
+            {error && <p className='text-danger mt-2 py-2'>{error}</p>}
+            {isLoggedIn && <p className='text-secondary text-lead mt-2 py-2 mb-0'>Quantities and  Payment amount can change during the checkout
+            </p>}
+            {
+              isLoggedIn && <p className='text-secondary text-lead'>Test Card: {TEST_CARD}</p>
+            }
+            {isLoggedIn && <ButtonLoader isLoading={isLoading} text='Continue to Checkout' clickCb={fetchSessionIdFromServer} type="button"  className="btn btn-secondary text-white btn-lg btn-block w-100"  />}
           </div>
         </div>
   )
