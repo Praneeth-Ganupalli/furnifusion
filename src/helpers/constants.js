@@ -30,8 +30,8 @@ export const HOME_PAGE_CARDS=[
         content:"Furnifusion was founded to offer affordable, stylish furniture for all. Our journey started with a small selection and grew into a passion for creating functional homes.we strive for excellent customer service and a seamless shopping experience."
     }
 ]
-const BASE_URL = 'https://furni-fusion-server-production.up.railway.app/api/v1'
-//const BASE_URL=`http://127.0.0.1:8006/api/v1`;
+//const BASE_URL = 'https://furni-fusion-server-production.up.railway.app/api/v1'
+const BASE_URL=`http://127.0.0.1:8006/api/v1`;
 export const products_url = `${BASE_URL}/products`
 export const SIGN_UP_URL = `${BASE_URL}/users/signup`
 export const LOGIN_URL= `${BASE_URL}/users/login`

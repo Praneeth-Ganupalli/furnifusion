@@ -81,12 +81,54 @@ const useOrders = () => {
         const serverResponse = await performAxiosAction(`${ORDERS_URL}/${orderId}`, 'GET', null);
         return serverResponse.data;
     }, [performAxiosAction])
+    const downloadOrderInvoice = useCallback(async(orderId)=>{
+        try{
+            setIsLoading(true);
+            setError(null);
+            const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+            if (!userInfo?.token) {
+                throw new Error("Not Logged In");
+            }
+            const serverResponse = await fetch(`${ORDERS_URL}/${orderId}/invoice`,{
+                headers:new Headers({
+                    "authorization":`Bearer ${userInfo.token}`
+                })
+            }) /// do service call to server
+            const reader = serverResponse.body.getReader(); // create the reader
+            const chunks = [];
+            // data  will be sent through chunks we have collect everything
+            while(true)
+            {
+                const {done,value} = await reader.read(); // reading the chunks
+                if(done) break;
+                chunks.push(value);
+            }
+            const blob = new Blob(chunks); // creating blob
+            const fileUrl = window.URL.createObjectURL(blob); // creating url
+            const link = document.createElement('a');
+            link.href = fileUrl;
+            link.download = `${orderId}-invoice.pdf`;
+            link.click();
+        }
+        catch(e)
+        {
+            const message = e.response?.data?.message || e.message;
+            setError(message);
+            setTimeout(()=>{
+                setError(null);
+            },4000)
+        }
+        finally{
+            setIsLoading(false);
+        }
+    },[])
     return {
         isLoading,
         error,
         validatePayment,
         fetchUserOrders,
-        fetchOrderDetails
+        fetchOrderDetails,
+        downloadOrderInvoice
     }
 }
 
